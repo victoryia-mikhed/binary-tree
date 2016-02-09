@@ -85,12 +85,12 @@ class BinaryTree {
 		if (node.right.data === data) {
 			//если есть только правый сын:
 			if (node.right.right != null && node.right.left === null) {
-				node.right.right = node.right.right.right;
+				node.right = node.right.right;
 				return;
 			}
 			//если есть только левый сын:
 			if (node.right.left != null && node.right.right === null) {
-				node.right.left = node.right.left.left;
+				node.right = node.right.left;
 				return;
 			}
 			//если два сына:
@@ -108,18 +108,18 @@ class BinaryTree {
 		if (node.left.data === data) {
 			//если есть только правый сын:
 			if (node.left.right != null && node.left.left === null) {
-				node.left.right = node.left.right.right;
+				node.left = node.left.right;
 				return;
 			}
 			//если есть только левый сын:
 			if (node.left.left != null && node.left.right === null) {
-				node.left.left = node.left.left.left;
+				node.left= node.left.left;
 				return;
 			}
 			//если два сына:
 			if (node.right.left != null && node.right.right != null) {
 				var current = node.left.left;
-				while (current.right != null) {
+				while (current.rt != null) {
 					current = current.right;
 				}
 				this.removeData(node.left, current.data);
